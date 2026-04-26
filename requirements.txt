@@ -1,0 +1,7 @@
+agentline>=0.1.0
+
+# Optional — only needed for specific recipes:
+# anthropic>=0.40     # for sms_customer_support_bot.py, email_autoresponder.py, integration_anthropic_tool_use.py, email_support_intake.py
+# langchain>=0.3      # for integration_langchain.py
+# langchain-anthropic>=0.3
+# crewai>=0.80        # for integration_crewai.py
