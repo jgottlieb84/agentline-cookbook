@@ -27,7 +27,6 @@ def signup_to(service: str, phone: str) -> None:
 
 for service in SERVICES:
     print(f"Signing up for {service}...")
-    phone, code = client.capture_code(area_code="415", timeout=120)
+    phone, code = client.capture_code(area_code="415", timeout=120, on_provision=lambda phone: signup_to(service, phone))
     print(f"  phone: {phone}, code: {code}")
-    signup_to(service, phone)
     print(f"  done. Number released.\n")

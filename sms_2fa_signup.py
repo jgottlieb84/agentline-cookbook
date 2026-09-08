@@ -13,7 +13,8 @@ from agentline import Agentline
 
 client = Agentline(api_key=os.environ["AGENTLINE_API_KEY"])
 
-phone, code = client.capture_code(area_code="415", timeout=120)
+def submit_signup(address: str) -> None:
+    input(f"Enter {address} in your signup form, request a code, then press Enter here: ")
 
-print(f"Use this phone number in the signup form: {phone}")
-print(f"2FA code received: {code}")
+phone, code = client.capture_code(area_code="415", timeout=120, on_provision=submit_signup)
+print(f"Verification code: {code}")

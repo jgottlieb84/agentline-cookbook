@@ -24,10 +24,9 @@ def provision_number_tool(area_code: str = "415") -> str:
 
 
 @tool("capture_code")
-def capture_code_tool(area_code: str = "415") -> str:
-    """Provision number + wait for 2FA code + release. Returns 'PHONE|CODE'."""
-    phone, code = a.capture_code(area_code=area_code, timeout=120)
-    return f"{phone}|{code}"
+def capture_code_tool(phone_number: str, since: str) -> str:
+    """Wait on the existing number; since is the UTC timestamp before signup."""
+    return str(a.get_verification_code(phone_number, since=since, timeout=120))
 
 
 @tool("release_number")
